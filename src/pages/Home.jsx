@@ -1,21 +1,48 @@
-//import API_KEY from '../../.env'
-import { useState,useEffect } from 'react'
+import axios from 'axios'
+import { useQuery } from 'react-query'
+
 import config from '../../config.js'
+import * as Styles from './HomeStyles.jsx'
 
 function Home(){
-  const [data,setData] = useState()
+  const {data,isLoading,error} = useQuery('movies', () => {
+    return axios.get(`https://api.themoviedb.org/3/discover/movie/?language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
+  })
   
-  useEffect(
-    async () => {
-      const movieData = await fetch(`https://api.themoviedb.org/3/discover/movie/?language=pt-br&api_key=${config.apiKey}`).then((response) => response.json()).catch((err) => err)
-      console.log(movieData)
-    }
-    ,[])
+  if(isLoading){
+    return <div>Carregando...</div>
+  }
+  
+  if(error){
+    return <div>Algo deu errado!</div>
+  }
   return(
     <>
-      <div>
-
-      </div>
+      <Styles.Main>
+      
+        <Styles.boxScroll>
+          {
+            data.results.map((value) => {
+            return (
+              <Styles.boxMovies width="90%" height="170px">
+                <img src={`https://image.tmdb.org/t/p/w500/${value.backdrop_path}`} />
+              </Styles.boxMovies>
+              )
+            })
+          }
+        </Styles.boxScroll>
+      
+        {
+        data.results.map((value) => {
+        console.log(value)
+        return (
+          <Styles.boxMovies width="130px" height="160px">
+            <img src={`https://image.tmdb.org/t/p/w500/${value.backdrop_path}`} />
+          </Styles.boxMovies>
+          )
+        })
+        }
+      </Styles.Main>
     </>
     )
 }
