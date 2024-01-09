@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useQuery } from 'react-query'
 
 import config from '../../../config.js'
+import Navbar from '../../components/Navbar.jsx'
 import * as Styles from './HomeStyles.jsx'
 
 function Home(){
@@ -18,6 +19,7 @@ function Home(){
   }
   return(
     <>
+      <Navbar />
       <Styles.Main>
       
         <Styles.boxScroll>
