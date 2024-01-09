@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useQuery } from 'react-query'
 
-import config from '../../config.js'
+import config from '../../../config.js'
 import * as Styles from './HomeStyles.jsx'
 
 function Home(){
