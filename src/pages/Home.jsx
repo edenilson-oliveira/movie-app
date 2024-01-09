@@ -36,8 +36,10 @@ function Home(){
         data.results.map((value) => {
         console.log(value)
         return (
-          <Styles.boxMovies width="130px" height="160px">
-            <img src={`https://image.tmdb.org/t/p/w500/${value.backdrop_path}`} />
+          <Styles.boxMovies width="145px" height="245px">
+            <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
+            <Styles.TitleMovie fontSize={value.title.length > 30 ? '.5em': '.7em'}>{value.title}</Styles.TitleMovie>
+            <p>{value.vote_average}</p>
           </Styles.boxMovies>
           )
         })

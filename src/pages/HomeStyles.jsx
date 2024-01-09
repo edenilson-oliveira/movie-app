@@ -10,23 +10,41 @@ export const Main = styled.main`
   `
 
 export const boxScroll = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 150px;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  overflow: auto;
+  display: inline-block;
+  overflow-x: hidden;
   `
 
 export const boxMovies = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   margin: 5px;
-  
+  padding: 5px;
+  background-color: #172538;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
   
   & img{
     width: 100%;
-    height: 100%;
+    height: 80%;
+    border-radius: 10px;
+  }
+  & p{
+    width: 100%;
+    font-size: .75em;
+    margin: 2px 5px;
+    color: #FFD432;
+    font-weight: bold;
   }
   `
+  
+export const TitleMovie = styled.h2`
+    width: 100%;
+    font-size: ${(props) => props.fontSize};
+    margin: 5px;
+
+  `
+  
