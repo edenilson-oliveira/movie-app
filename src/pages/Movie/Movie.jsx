@@ -7,7 +7,8 @@ function Movie(){
   return(
     <>
       <Styles.Main>
-        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+        <Styles.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+        <Styles.TitleMovie>{movie.title}</Styles.TitleMovie>
       </Styles.Main>
     </>
     )
