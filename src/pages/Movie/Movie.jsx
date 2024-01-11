@@ -9,6 +9,9 @@ function Movie(){
       <Styles.Main>
         <Styles.Img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
         <Styles.TitleMovie>{movie.title}</Styles.TitleMovie>
+        
+        <Styles.Subtitle>Sinopse</Styles.Subtitle>
+        <Styles.Text>{movie.overview}</Styles.Text>
       </Styles.Main>
     </>
     )

@@ -21,7 +21,7 @@ function Home(){
     navigate('/movie')
   }
   if(isLoading){
-    return <div>Carregando...</div>
+    return <Styles.Loading></Styles.Loading>
   }
   
   if(error){
