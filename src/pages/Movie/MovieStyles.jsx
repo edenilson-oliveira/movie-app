@@ -4,15 +4,21 @@ export const Main = styled.main`
   width: 100%;
   height: 100%;
   `
-  
-export const ButtonBack = styled.button`
+
+export const Buttons = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+`
+
+export const Button = styled.button`
   width: 40px;
   height: 40px;
-  background-color: gray;
-  position: absolute;
-  margin: 15px;
+  background-color: #7A7B806E;
   border-radius: 50%;
-  border: none;`
+  border: none;
+  margin: 15px 20px;`
 
 export const Img = styled.img`
   width: 100%;

@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faStar} from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 import config from '../../../config.js'
 import Navbar from '../../components/Navbar.jsx'
@@ -22,6 +22,7 @@ function Home(){
     dispatch(openMovie(movie))
     navigate('/movie')
   }
+    
   if(isLoading){
     return <Styles.Loading></Styles.Loading>
   }
@@ -58,7 +59,7 @@ function Home(){
             </Styles.TitleMovie>
             <p>
               {value.vote_average}
-              <FontAwesomeIcon icon={faStar} style={{color: "#FFD43B"}} />
+              <FontAwesomeIcon icon={faStar} size="xs" style={{color: "#FFD43B", paddingLeft:"2px"}}/>
              </p>
                        
           </Styles.boxMovies>

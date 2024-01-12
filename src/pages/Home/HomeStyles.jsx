@@ -7,6 +7,19 @@ export const Main = styled.main`
   justify-content: space-evenly;
   flex-wrap: wrap;
   overflow: auto;
+  color: #f2f2f2;
+  animation-name: anim-exit;
+  animation-duration: .5s;
+  animation-play-state: paused;
+  
+  @keyframes anim-exit{
+    from{
+      transform: translateX(0px);
+    }
+    to{
+      transform: translateX(-50px);
+    }
+  }
   `
 
 export const Loading = styled.div`
