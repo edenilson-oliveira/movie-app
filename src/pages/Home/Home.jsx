@@ -2,6 +2,8 @@ import axios from 'axios'
 import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faStar} from '@fortawesome/free-solid-svg-icons'
 
 import config from '../../../config.js'
 import Navbar from '../../components/Navbar.jsx'
@@ -49,10 +51,16 @@ function Home(){
         data.results.map((value) => {
         console.log(value)
         return (
-          <Styles.boxMovies width="145px" height="235px" onClick={() => handleClickNavigateMovie(value)}>
+          <Styles.boxMovies width="145px" height="260px" onClick={() => handleClickNavigateMovie(value)}>
             <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
-            <Styles.TitleMovie fontSize={value.title.length > 30 ? '.5em': '.7em'}>{value.title}</Styles.TitleMovie>
-            <p>{value.vote_average}</p>
+            <Styles.TitleMovie fontSize={value.title.length > 16 ? '.52em': '.7em'}>
+            {value.title}
+            </Styles.TitleMovie>
+            <p>
+              {value.vote_average}
+              <FontAwesomeIcon icon={faStar} style={{color: "#FFD43B"}} />
+             </p>
+                       
           </Styles.boxMovies>
           )
         })

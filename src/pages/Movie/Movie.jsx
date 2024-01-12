@@ -20,10 +20,12 @@ function Movie(){
         <Styles.TitleMovie>{movie.title}</Styles.TitleMovie>
         
         <Styles.Subtitle>Sinopse</Styles.Subtitle>
-        <Styles.Text>{movie.overview}</Styles.Text>
+        <Styles.Text>{movie.overview ? movie.overview: 'Não informada'}</Styles.Text>
         
         <Styles.MoreInfo>
-          <Styles.Note>{movie.vote_average} <FontAwesomeIcon icon={faStar} style={{color: "#FFD43B"}}/></Styles.Note>
+          <Styles.Note>
+            {movie.vote_average} <FontAwesomeIcon icon={faStar} style={{color: "#FFD43B"}} />
+          </Styles.Note>
           <Styles.Data>{movie.release_date}</Styles.Data>
         </Styles.MoreInfo>
 
