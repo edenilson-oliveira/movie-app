@@ -1,4 +1,6 @@
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//import {faStar} from '@fortawesome/fontawesome-svg-core'
 
 import * as Styles from './MovieStyles.jsx'
 
@@ -12,6 +14,12 @@ function Movie(){
         
         <Styles.Subtitle>Sinopse</Styles.Subtitle>
         <Styles.Text>{movie.overview}</Styles.Text>
+        
+        <Styles.MoreInfo>
+          <Styles.Note>{movie.vote_average} </Styles.Note>
+          <Styles.Data>{movie.release_date}</Styles.Data>
+        </Styles.MoreInfo>
+
       </Styles.Main>
     </>
     )
