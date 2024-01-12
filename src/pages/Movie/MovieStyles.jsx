@@ -4,6 +4,16 @@ export const Main = styled.main`
   width: 100%;
   height: 100%;
   `
+  
+export const ButtonBack = styled.button`
+  width: 40px;
+  height: 40px;
+  background-color: gray;
+  position: absolute;
+  margin: 15px;
+  border-radius: 50%;
+  border: none;`
+
 export const Img = styled.img`
   width: 100%;
   height: 400px;
