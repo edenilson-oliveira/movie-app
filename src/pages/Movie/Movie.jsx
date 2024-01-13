@@ -37,7 +37,7 @@ function Movie() {
         <Styles.MoreInfo>
           <Styles.Note>
             {movie.vote_average}{" "}
-            <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B" }} />
+            <FontAwesomeIcon icon={faStar}/>
           </Styles.Note>
                 
           <Styles.Data>

@@ -59,7 +59,7 @@ function Home(){
             </Styles.TitleMovie>
             <p>
               {value.vote_average}
-              <FontAwesomeIcon icon={faStar} size="xs" style={{color: "#FFD43B", paddingLeft:"2px"}}/>
+              <FontAwesomeIcon icon={faStar} size="xs" style={{paddingLeft:"2px"}}/>
              </p>
                        
           </Styles.boxMovies>

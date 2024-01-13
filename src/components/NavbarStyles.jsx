@@ -17,7 +17,12 @@ export const Title = styled.h1`
 export const Search = styled.button`
   width: 40px;
   height: 40px;
-  background-color: #f2f2f2;
   border: none;
   margin: 10px;
+  color: #f2f2f2;
+  background-color: transparent;
  `
+ 
+ export const SearchBar = styled.div`
+  width: 100px;
+  height: 40px;`
