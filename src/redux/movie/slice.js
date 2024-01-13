@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = ({
-  movie: null
+  movie: null,
+  favoritesMovies: []
 })
 
 const movieSlice = createSlice({
@@ -10,10 +11,15 @@ const movieSlice = createSlice({
   reducers: {
     openMovie: (state,action) => {
       state.movie = action.payload
+      console.log(state)
+    },
+    addFavorites: (state,action) => {
+      state.favoritesMovies.unshift(action.payload)
+      
     }
   }
 })
 
-export const { openMovie } = movieSlice.actions
+export const { openMovie,addFavorites } = movieSlice.actions
 
 export default movieSlice.reducer

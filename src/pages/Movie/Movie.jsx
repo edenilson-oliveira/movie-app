@@ -1,16 +1,26 @@
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faStar, faPlus } from "@fortawesome/free-solid-svg-icons";
+
+import { addFavorites } from './../../redux/movie/slice.js'
 
 import * as Styles from "./MovieStyles.jsx";
 
 function Movie() {
   const { movie } = useSelector(state => state.movieReducer);
+  const { favoritesMovies } = useSelector(state => state.movieReducer);
   const navigate = useNavigate();
   const handleClickReturnHome = () => {
     navigate("/");
   };
+  
+  const dispatch = useDispatch()
+  
+  const handleClickAddFavorites = () => {
+    dispatch(addFavorites(movie))
+    console.log(movie,favoritesMovies)
+  }
 
   return (
     <>
@@ -21,7 +31,7 @@ function Movie() {
                     />
           </Styles.Button>
         
-          <Styles.Button onClick={handleClickReturnHome}>
+          <Styles.Button onClick={handleClickAddFavorites}>
             <FontAwesomeIcon icon={faPlus} style={{ color: "#f2f2f2" }} />
           </Styles.Button>
         </Styles.Buttons>

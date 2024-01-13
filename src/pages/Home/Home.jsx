@@ -50,7 +50,6 @@ function Home(){
       
         {
         data.results.map((value) => {
-        console.log(value)
         return (
           <Styles.boxMovies width="145px" height="260px" onClick={() => handleClickNavigateMovie(value)}>
             <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
