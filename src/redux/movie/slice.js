@@ -11,11 +11,9 @@ const movieSlice = createSlice({
   reducers: {
     openMovie: (state,action) => {
       state.movie = action.payload
-      console.log(state)
     },
     addFavorites: (state,action) => {
       state.favoritesMovies.unshift(action.payload)
-      
     }
   }
 })

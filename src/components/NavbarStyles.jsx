@@ -11,7 +11,7 @@ export const Header = styled.header`
 
 export const Title = styled.h1`
   font-size: 1.2em;
-  margin: 10px;
+  margin: 15px;
   `
   
 export const Search = styled.button`
@@ -23,6 +23,12 @@ export const Search = styled.button`
   background-color: transparent;
  `
  
- export const SearchBar = styled.div`
-  width: 100px;
-  height: 40px;`
+ export const SearchBar = styled.input`
+  width: 170px;
+  height: 30px;
+  background-color: #7A7B8D60;
+  border-radius: 20px;
+  border: none;
+  position: absolute;
+  }
+  `

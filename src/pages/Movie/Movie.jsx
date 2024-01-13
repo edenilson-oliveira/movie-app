@@ -9,17 +9,16 @@ import * as Styles from "./MovieStyles.jsx";
 
 function Movie() {
   const { movie } = useSelector(state => state.movieReducer);
-  const { favoritesMovies } = useSelector(state => state.movieReducer);
   const navigate = useNavigate();
   const handleClickReturnHome = () => {
     navigate("/");
   };
-  
+  const { favoritesMovies } = useSelector(state => state.movieReducer);
   const dispatch = useDispatch()
   
   const handleClickAddFavorites = () => {
     dispatch(addFavorites(movie))
-    console.log(movie,favoritesMovies)
+    console.log(favoritesMovies)
   }
 
   return (
