@@ -36,18 +36,6 @@ function Home(){
       <Navbar />
       <Styles.Main>
       
-        <Styles.boxScroll>
-          {
-            data.results.map((value) => {
-            return (
-              <Styles.boxMovies width="90%" height="170px">
-                <img src={`https://image.tmdb.org/t/p/w500/${value.backdrop_path}`} />
-              </Styles.boxMovies>
-              )
-            })
-          }
-        </Styles.boxScroll>
-      
         {
         data.results.map((value) => {
         return (
