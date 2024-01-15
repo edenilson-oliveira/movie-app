@@ -1,5 +1,16 @@
 import styled from 'styled-components'
+import Modal from 'styled-react-modal'
 
+export const StyledModal = Modal.styled`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #171538;
+`
 export const Header = styled.header`
   width: 100%;
   height: 60px;
@@ -24,11 +35,13 @@ export const Search = styled.button`
  `
  
  export const SearchBar = styled.input`
-  width: 170px;
+  width: 70%;
   height: 30px;
   background-color: #7A7B8D60;
   border-radius: 20px;
   border: none;
-  position: absolute;
+  margin: 15px 5px;
+  color: #f2f2f2;
+  padding: 5px;
   }
   `
