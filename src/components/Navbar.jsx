@@ -1,14 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal"
-import { useState } from 'react'
+import { useState,useRef } from 'react'
 import { ModalProvider } from 'styled-react-modal'
 
 import * as Styles from "./NavbarStyles.jsx";
 
 function Navbar() {
+  const inputValue = useRef('')
   
   const [modalOpen,setModal] = useState(false)
+  
+  const handleClickSearch = () => {
+    console.log('Em andamento')
+  }
   
   return (
     <>
@@ -22,13 +27,16 @@ function Navbar() {
           
           <Styles.StyledModal 
             isOpen={modalOpen}
-            >
+            onClick={(e) => e.target.className === 'Modal__wrap-jmcGzM dwgIQz'? setModal(false) : false}>
             
-            <Styles.SearchBar type="search" />
-          <Styles.Search onClick={() => setModal(false)}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </Styles.Search>
-       </Styles.StyledModal >
+            <Styles.boxSearch>
+              <Styles.SearchBar ref={inputValue} type="search"/>
+              
+              <Styles.Search>
+                <FontAwesomeIcon icon={faMagnifyingGlass} onClick={handleClickSearch}/>
+              </Styles.Search>
+            </Styles.boxSearch>
+          </Styles.StyledModal >
           
      </Styles.Header>
     </ModalProvider>

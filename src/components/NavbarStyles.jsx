@@ -2,15 +2,19 @@ import styled from 'styled-components'
 import Modal from 'styled-react-modal'
 
 export const StyledModal = Modal.styled`
-  position: absolute;
-  top: 0;
+  width: 100%;
+  height: 100%;
+`
+
+export const boxSearch = styled.div`
   width: 100%;
   height: 150px;
   display: flex;
   justify-content: center;
   padding: 20px;
   background-color: #171538;
-`
+  `
+
 export const Header = styled.header`
   width: 100%;
   height: 60px;
@@ -42,6 +46,6 @@ export const Search = styled.button`
   border: none;
   margin: 15px 5px;
   color: #f2f2f2;
-  padding: 5px;
+  padding: 10px;
   }
   `
