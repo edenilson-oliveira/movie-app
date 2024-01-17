@@ -8,6 +8,7 @@ import App from "./App.jsx";
 import GlobalStyle from "./GlobalStyles.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Movie from "./pages/Movie/Movie.jsx";
+import Search from "./pages/Search/Search.jsx"
 import ErrorPage from "./pages/ErrorPage.jsx"
 import store from "./redux/store.js";
 
@@ -21,10 +22,10 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home />
             },
-            //     {
-            //       path: '/search'
-            //       element: <Search />
-            //     }
+            {
+              path: '/search',
+              element: <Search />
+            },
             {
                 path: "/movie",
                 element: <Movie />

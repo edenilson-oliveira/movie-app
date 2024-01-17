@@ -3,6 +3,10 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal"
 import { useState,useRef } from 'react'
 import { ModalProvider } from 'styled-react-modal'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
+import { searchMovie } from  '../redux/movie/slice.js'
 
 import * as Styles from "./NavbarStyles.jsx";
 
@@ -11,8 +15,12 @@ function Navbar() {
   
   const [modalOpen,setModal] = useState(false)
   
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  
   const handleClickSearch = () => {
-    console.log('Em andamento')
+    dispatch(searchMovie(inputValue.current.value))
+    navigate('/search')
   }
   
   return (
