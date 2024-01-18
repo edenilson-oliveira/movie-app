@@ -3,18 +3,19 @@ import { useSelector,useDispatch } from 'react-redux'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { useRef } from 'react'
 
 import config from '../../../config.js'
 import { openMovie } from '../../redux/movie/slice.js'
 
-import * as StylesHome from '../Home/HomeStyles.jsx'
+import * as StylesNavbar from '../../components/NavbarStyles.jsx'
 import * as Styles from './SearchStyles.jsx'
 
 function Search(){
   const { search } = useSelector(state => state.movieReducer)
   
-  const {data,isLoading,error} = useQuery('searchMovie', () => {
+  const {data,isLoading,error,refetch} = useQuery('searchMovie', () => {
     return axios.get(`https://api.themoviedb.org/3/search/movie?query=${search}&language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
   })
   const dispatch = useDispatch()
@@ -23,6 +24,12 @@ function Search(){
   const handleClickNavigateMovie = (movie) => {
     dispatch(openMovie(movie))
     navigate('/movie')
+  }
+  
+  const inputValue = useRef('')
+  
+  const handleClickSearch = () => {
+    dispatch(searchMovie(inputValue.current.value))
   }
   
   if(isLoading){
@@ -34,18 +41,23 @@ function Search(){
   
   return(
     <>
-      <h1>Search</h1>
-      
       <Styles.Main>
       
+        
+        <StylesNavbar.SearchBar ref={inputValue} type="search"/>
+              
+        <StylesNavbar.Search>
+          <FontAwesomeIcon icon={faMagnifyingGlass} onClick={handleClickSearch}/>
+        </StylesNavbar.Search>
+       
       {
       data.results.map((value) => {
       return (
       <Styles.boxMovies onClick={() => handleClickNavigateMovie(value)}>
             <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
-            <StylesHome.TitleMovie fontSize={value.title.length > 16 ? '1em': '.7em'}>
+            <Styles.TitleMovie fontSize={value.title.length > 16 ? '1em': '.7em'}>
               {value.title}
-            </StylesHome.TitleMovie>
+            </Styles.TitleMovie>
             <p>
               {value.vote_average.toFixed(1)}
               <FontAwesomeIcon icon={faStar} size="xs" style={{paddingLeft:"2px"}}/>
