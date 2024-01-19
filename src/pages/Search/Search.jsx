@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query'
+import { useQuery,useQueryClient } from 'react-query'
 import { useSelector,useDispatch } from 'react-redux'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
@@ -7,16 +7,16 @@ import { faStar,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { useRef } from 'react'
 
 import config from '../../../config.js'
-import { openMovie } from '../../redux/movie/slice.js'
+import { searchMovie,openMovie } from '../../redux/movie/slice.js'
 
 import * as StylesNavbar from '../../components/NavbarStyles.jsx'
 import * as Styles from './SearchStyles.jsx'
 
 function Search(){
   const { search } = useSelector(state => state.movieReducer)
-  
-  const {data,isLoading,error,refetch} = useQuery('searchMovie', () => {
-    return axios.get(`https://api.themoviedb.org/3/search/movie?query=${search}&language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
+  const queryClient = useQueryClient()
+  const {data,isLoading,error,m} = useQuery('searchMovie', () => {
+      return axios.get(`https://api.themoviedb.org/3/search/movie?query=${search}&language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
   })
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -30,6 +30,8 @@ function Search(){
   
   const handleClickSearch = () => {
     dispatch(searchMovie(inputValue.current.value))
+    //queryClient.invalidateQueries('searchMovie')
+    console.log(data,search)
   }
   
   if(isLoading){

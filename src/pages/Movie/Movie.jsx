@@ -45,7 +45,7 @@ function Movie() {
               
         <Styles.MoreInfo>
           <Styles.Note>
-            {movie.vote_average}{" "}
+            {movie.vote_average.toFixed(1)}
             <FontAwesomeIcon icon={faStar}/>
           </Styles.Note>
                 
