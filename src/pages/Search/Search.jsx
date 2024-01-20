@@ -13,11 +13,15 @@ import * as StylesNavbar from '../../components/NavbarStyles.jsx'
 import * as Styles from './SearchStyles.jsx'
 
 function Search(){
-  const { search } = useSelector(state => state.movieReducer)
   const queryClient = useQueryClient()
-  const {data,isLoading,error,m} = useQuery('searchMovie', () => {
+  
+  const { search } = useSelector(state => state.movieReducer)
+  console.log(search)
+  const {data,isLoading,error} = useQuery('searchMovie', () => {
+      console.log(search)
       return axios.get(`https://api.themoviedb.org/3/search/movie?query=${search}&language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
   })
+  
   const dispatch = useDispatch()
   const navigate = useNavigate()
   
@@ -30,8 +34,8 @@ function Search(){
   
   const handleClickSearch = () => {
     dispatch(searchMovie(inputValue.current.value))
-    //queryClient.invalidateQueries('searchMovie')
-    console.log(data,search)
+    queryClient.invalidateQueries('searchMovie', {exact: true})
+    //console.log(data,search)
   }
   
   if(isLoading){
@@ -51,20 +55,19 @@ function Search(){
         <StylesNavbar.Search>
           <FontAwesomeIcon icon={faMagnifyingGlass} onClick={handleClickSearch}/>
         </StylesNavbar.Search>
-       
+        
       {
       data.results.map((value) => {
       return (
-      <Styles.boxMovies onClick={() => handleClickNavigateMovie(value)}>
-            <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
-            <Styles.TitleMovie fontSize={value.title.length > 16 ? '1em': '.7em'}>
+      <Styles.boxMovies onClick={() => handleClickNavigateMovie(value)} >
+          <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
+          <Styles.TitleMovie fontSize={value.title.length > 16 ? '1em': '.7em'}>
               {value.title}
-            </Styles.TitleMovie>
-            <p>
-              {value.vote_average.toFixed(1)}
-              <FontAwesomeIcon icon={faStar} size="xs" style={{paddingLeft:"2px"}}/>
-             </p>
-                       
+          </Styles.TitleMovie>
+          <p>
+            {value.vote_average.toFixed(1)}
+            <FontAwesomeIcon icon={faStar} size="xs" style={{paddingLeft:"2px"}}/>
+          </p>
         </Styles.boxMovies>
         )
       })

@@ -1,5 +1,6 @@
 import { useSelector,useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faStar, faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -10,8 +11,9 @@ import * as Styles from "./MovieStyles.jsx";
 function Movie() {
   const { movie } = useSelector(state => state.movieReducer);
   const navigate = useNavigate();
+  
   const handleClickReturnHome = () => {
-    navigate("/");
+     navigate("/");
   };
   const { favoritesMovies } = useSelector(state => state.movieReducer);
   const dispatch = useDispatch()

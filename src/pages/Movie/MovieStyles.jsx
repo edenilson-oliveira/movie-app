@@ -22,7 +22,7 @@ export const Button = styled.button`
 
 export const Img = styled.img`
   width: 100%;
-  height: 400px;
+  height: 460px;
 `
 
 export const TitleMovie = styled.h1`
