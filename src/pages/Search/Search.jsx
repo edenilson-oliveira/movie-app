@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { useRef } from 'react'
+import { useState,useRef } from 'react'
 
 import config from '../../../config.js'
 import { searchMovie,openMovie } from '../../redux/movie/slice.js'
@@ -16,10 +16,13 @@ function Search(){
   const queryClient = useQueryClient()
   
   const { search } = useSelector(state => state.movieReducer)
-  console.log(search)
-  const {data,isLoading,error} = useQuery('searchMovie', () => {
-      console.log(search)
-      return axios.get(`https://api.themoviedb.org/3/search/movie?query=${search}&language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
+  
+  const [searchActual,setSearch] = useState(search)
+  
+  console.log(searchActual)
+  const {data,isLoading,error,refetch} = useQuery('searchMovie', () => {
+      console.log(searchActual)
+      return axios.get(`https://api.themoviedb.org/3/search/movie?query=${searchActual}&language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
   })
   
   const dispatch = useDispatch()
@@ -33,10 +36,12 @@ function Search(){
   const inputValue = useRef('')
   
   const handleClickSearch = () => {
-    dispatch(searchMovie(inputValue.current.value))
-    queryClient.invalidateQueries('searchMovie', {exact: true})
-    //console.log(data,search)
+    setSearch(inputValue.current.value)
+    queryClient.invalidateQueries('searchMovie')
+
+    
   }
+  
   
   if(isLoading){
     return <div>Carregando...</div>
