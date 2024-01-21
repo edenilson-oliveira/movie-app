@@ -18,8 +18,9 @@ function Home(){
   
   const navigate = useNavigate()
   
-  const handleClickNavigateMovie = (movie) => {
-    dispatch(openMovie(movie))
+  const handleClickNavigateMovie = (movieId) => {
+    console.log(movieId)
+    dispatch(openMovie(movieId))
     navigate('/movie')
   }
     
@@ -39,7 +40,8 @@ function Home(){
         {
         data.results.map((value) => {
         return (
-          <Styles.boxMovies width="145px" height="260px" onClick={() => handleClickNavigateMovie(value)}>
+          <Styles.boxMovies width="145px" height="260px" onClick={() => handleClickNavigateMovie(value.id)}>
+
             <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
             <Styles.TitleMovie fontSize={value.title.length > 16 ? '.52em': '.7em'}>
             {value.title}

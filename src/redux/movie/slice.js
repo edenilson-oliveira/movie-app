@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = ({
-  movie: null,
+  movieId: 0,
   search: '',
   favoritesMovies: []
 })
@@ -11,7 +11,7 @@ const movieSlice = createSlice({
   initialState,
   reducers: {
     openMovie: (state,action) => {
-      state.movie = action.payload
+      state.movieId = action.payload
     },
     searchMovie: (state,action) => {
       state.search = action.payload

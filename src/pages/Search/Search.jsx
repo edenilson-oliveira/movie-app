@@ -1,4 +1,4 @@
-import { useQuery,useQueryClient } from 'react-query'
+import { useQuery,useQueryClient,useMutation } from 'react-query'
 import { useSelector,useDispatch } from 'react-redux'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
@@ -28,6 +28,8 @@ function Search(){
   const dispatch = useDispatch()
   const navigate = useNavigate()
   
+  
+  
   const handleClickNavigateMovie = (movie) => {
     dispatch(openMovie(movie))
     navigate('/movie')
@@ -35,8 +37,11 @@ function Search(){
   
   const inputValue = useRef('')
   
+  const { mutate } = useMutation(data);
+  
   const handleClickSearch = () => {
     setSearch(inputValue.current.value)
+    mutate()
     queryClient.invalidateQueries('searchMovie')
 
     
