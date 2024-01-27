@@ -7,7 +7,6 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 import config from '../../../config.js'
 import Navbar from '../../components/Navbar.jsx'
-import { openMovie } from '../../redux/movie/slice.js'
 import * as Styles from './HomeStyles.jsx'
 
 function Home(){
@@ -19,9 +18,7 @@ function Home(){
   const navigate = useNavigate()
   
   const handleClickNavigateMovie = (movieId) => {
-    console.log(movieId)
-    dispatch(openMovie(movieId))
-    navigate('/movie')
+    navigate(`/movie/${movieId}`)
   }
     
   if(isLoading){

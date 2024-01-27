@@ -21,7 +21,6 @@ function Search(){
   
   console.log(searchActual)
   const {data,isLoading,error,refetch} = useQuery('searchMovie', () => {
-      console.log(searchActual)
       return axios.get(`https://api.themoviedb.org/3/search/movie?query=${searchActual}&language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
   })
   
@@ -30,9 +29,8 @@ function Search(){
   
   
   
-  const handleClickNavigateMovie = (movie) => {
-    dispatch(openMovie(movie))
-    navigate('/movie')
+  const handleClickNavigateMovie = (movieId) => {
+    navigate(`/movie/${movieId}`)
   }
   
   const inputValue = useRef('')
@@ -69,7 +67,7 @@ function Search(){
       {
       data.results.map((value) => {
       return (
-      <Styles.boxMovies onClick={() => handleClickNavigateMovie(value)} >
+      <Styles.boxMovies onClick={() => handleClickNavigateMovie(value.id)} >
           <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
           <Styles.TitleMovie fontSize={value.title.length > 16 ? '1em': '.7em'}>
               {value.title}

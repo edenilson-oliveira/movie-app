@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useSelector,useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import { useQuery } from 'react-query'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,13 +12,13 @@ import config from '../../../config.js'
 import * as Styles from "./MovieStyles.jsx";
 
 function Movie() {
-  const { movieId } = useSelector(state => state.movieReducer);
   const navigate = useNavigate();
   
-  const {data,isLoading,error} = useQuery('movies', () => {
-    return axios.get(`https://api.themoviedb.org/3/movie/${movieId}?language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
+  const { id } = useParams()
+  const {dataMovie,isLoading,error} = useQuery('movies', () => {
+    return axios.get(`https://api.themoviedb.org/3/movie/${id}?language=pt-br&api_key=${config.apiKey}`).then(response => response.dataMovie)
   })
-  console.log(movieId)
+  console.log(dataMovie)
   
   const handleClickReturnHome = () => {
      navigate("/");
@@ -27,7 +27,7 @@ function Movie() {
   const dispatch = useDispatch()
   
   const handleClickAddFavorites = () => {
-    dispatch(addFavorites(data))
+    dispatch(addFavorites(dataMovie))
     
   }
   if(isLoading){
@@ -52,21 +52,21 @@ function Movie() {
           </Styles.Button>
         </Styles.Buttons>
           
-        <Styles.Img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} />
-        <Styles.TitleMovie>{data.title}</Styles.TitleMovie>
+        <Styles.Img src={`https://image.tmdb.org/t/p/w500/${dataMovie.poster_path}`} />
+        <Styles.TitleMovie>{dataMovie.title}</Styles.TitleMovie>
         <Styles.Subtitle>Sinopse</Styles.Subtitle>
         <Styles.Text>
-           {data.overview ? data.overview : "Não informada"}
+           {dataMovie.overview ? dataMovie.overview : "Não informada"}
         </Styles.Text>
               
         <Styles.MoreInfo>
           <Styles.Note>
-            {data.vote_average.toFixed(1)}
+            {dataMovie.vote_average.toFixed(1)}
             <FontAwesomeIcon icon={faStar}/>
           </Styles.Note>
                 
           <Styles.Data>
-            {data.release_date}
+            {dataMovie.release_date}
           </Styles.Data>
         </Styles.MoreInfo>
       </Styles.Main>)
