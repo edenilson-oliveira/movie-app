@@ -15,10 +15,10 @@ function Movie() {
   const navigate = useNavigate();
   const { id } = useParams()
   
-  const {data,isLoading,error} = useQuery('movies', () => {
+  const {data,isLoading,error} = useQuery('pageMovies', () => {
     return axios.get(`https://api.themoviedb.org/3/movie/${id}?language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
   })
-  console.log(data)
+  
   const handleClickReturnHome = () => {
      navigate("/");
   }
@@ -51,14 +51,14 @@ function Movie() {
             <FontAwesomeIcon icon={faPlus} style={{ color: "#f2f2f2" }} />
           </Styles.Button>
         </Styles.Buttons>
-          
+       
         <Styles.Img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} />
         <Styles.TitleMovie>{data.title}</Styles.TitleMovie>
         <Styles.Subtitle>Sinopse</Styles.Subtitle>
         <Styles.Text>
            {data.overview ? data.overview : "Não informada"}
         </Styles.Text>
-              
+        
         <Styles.MoreInfo>
           <Styles.Note>
             {data.vote_average.toFixed(1)}
