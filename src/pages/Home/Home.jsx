@@ -10,7 +10,7 @@ import Navbar from '../../components/Navbar.jsx'
 import * as Styles from './HomeStyles.jsx'
 
 function Home(){
-  const {data,isLoading,error} = useQuery('movies', () => {
+  const {data,isLoading,error,refetch} = useQuery('movies', () => {
     return axios.get(`https://api.themoviedb.org/3/discover/movie/?language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
   })
   const dispatch = useDispatch()
@@ -44,7 +44,7 @@ function Home(){
             {value.title}
             </Styles.TitleMovie>
             <p>
-              {value.vote_average}
+              {value.vote_average.toFixed(1)}
               <FontAwesomeIcon icon={faStar} size="xs" style={{paddingLeft:"2px"}}/>
              </p>
                        
