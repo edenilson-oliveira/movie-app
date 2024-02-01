@@ -10,12 +10,6 @@ const movieSlice = createSlice({
   name: 'movie',
   initialState,
   reducers: {
-    openMovie: (state,action) => {
-      state.movieId = action.payload
-    },
-    searchMovie: (state,action) => {
-      state.search = action.payload
-    },
     addFavorites: (state,action) => {
       state.favoritesMovies.unshift(action.payload)
     }

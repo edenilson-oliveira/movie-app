@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
-        errorElement: <ErrorPage />,
+        //errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
             },
             {
               path: '/search',
+              element: <Search />
+            },
+                        {
+              path: '/search/:movieName',
               element: <Search />
             },
             {

@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,7 +12,6 @@ function Home(){
   const {data,isLoading,error,refetch} = useQuery('movies', () => {
     return axios.get(`https://api.themoviedb.org/3/discover/movie/?language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
   })
-  const dispatch = useDispatch()
   
   const navigate = useNavigate()
   
