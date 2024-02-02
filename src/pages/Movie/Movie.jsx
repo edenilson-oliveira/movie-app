@@ -29,6 +29,7 @@ function Movie() {
   const handleClickAddFavorites = () => {
     dispatch(addFavorites(data))
     
+    console.log(favoritesMovies)
   }
   if(isLoading){
     return <div>Carregando</div>

@@ -7,7 +7,6 @@ import { faStar,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { useState,useRef } from 'react'
 
 import config from '../../../config.js'
-import { searchMovie,openMovie } from '../../redux/movie/slice.js'
 
 import * as StylesNavbar from '../../components/NavbarStyles.jsx'
 import * as Styles from './SearchStyles.jsx'

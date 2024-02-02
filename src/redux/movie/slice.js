@@ -11,11 +11,15 @@ const movieSlice = createSlice({
   initialState,
   reducers: {
     addFavorites: (state,action) => {
-      state.favoritesMovies.unshift(action.payload)
+      const isExistsMovie = state.favoritesMovies.some((value) => value.id === action.payload.id)
+     
+      if(!isExistsMovie){
+        state.favoritesMovies.unshift(action.payload)
+      }
     }
   }
 })
 
-export const { openMovie,searchMovie,addFavorites } = movieSlice.actions
+export const { addFavorites } = movieSlice.actions
 
 export default movieSlice.reducer

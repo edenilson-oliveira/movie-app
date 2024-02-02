@@ -5,8 +5,6 @@ import { useState,useRef } from 'react'
 import { ModalProvider } from 'styled-react-modal'
 import { useNavigate } from 'react-router-dom'
 
-import { searchMovie } from  '../redux/movie/slice.js'
-
 import * as Styles from "./NavbarStyles.jsx";
 
 function Navbar() {
