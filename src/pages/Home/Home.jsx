@@ -7,6 +7,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import config from '../../../config.js'
 import Navbar from '../../components/Navbar.jsx'
 import * as Styles from './HomeStyles.jsx'
+import { Loading } from '../../GlobalStyles.jsx'
 
 function Home(){
   const {data,isLoading,error,refetch} = useQuery('movies', () => {
@@ -20,7 +21,7 @@ function Home(){
   }
     
   if(isLoading){
-    return <Styles.Loading></Styles.Loading>
+    return <Loading></Loading>
   }
   
   if(error){

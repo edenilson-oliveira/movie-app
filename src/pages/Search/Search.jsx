@@ -10,6 +10,7 @@ import config from '../../../config.js'
 
 import * as StylesNavbar from '../../components/NavbarStyles.jsx'
 import * as Styles from './SearchStyles.jsx'
+import { Loading } from '../../GlobalStyles.jsx'
 
 function Search(){
   const queryClient = useQueryClient()
@@ -39,7 +40,7 @@ function Search(){
   
   
   if(isLoading){
-    return <div>Carregando...</div>
+    return <Loading></Loading>
   }
   if(error){
     return <div>Algo deu Errado</div>

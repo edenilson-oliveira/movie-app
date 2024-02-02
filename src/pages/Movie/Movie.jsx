@@ -10,6 +10,7 @@ import { addFavorites } from './../../redux/movie/slice.js'
 import config from '../../../config.js'
 
 import * as Styles from "./MovieStyles.jsx";
+import { Loading } from '../../GlobalStyles.jsx'
 
 function Movie() {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ function Movie() {
     console.log(favoritesMovies)
   }
   if(isLoading){
-    return <div>Carregando</div>
+    return <Loading></Loading>
   }
   
   if(error){
