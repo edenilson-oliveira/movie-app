@@ -7,4 +7,9 @@ The repository is a movie app, using a the movie database api, build using React
   ```bash
   npm run dev
   ```
-# Tecnologies
+# Tecnologies and libraries
+- React-router
+- React-query
+- axios
+- React-modal
+- styled-components
