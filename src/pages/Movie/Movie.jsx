@@ -21,7 +21,7 @@ function Movie() {
   })
   
   const handleClickReturnHome = () => {
-     navigate("/");
+     navigate(-1);
   }
   
   const { favoritesMovies } = useSelector(state => state.movieReducer);

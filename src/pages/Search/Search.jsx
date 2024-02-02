@@ -3,7 +3,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import axios from 'axios'
 import { useNavigate,useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faStar,faMagnifyingGlass,faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { useState,useRef } from 'react'
 
 import config from '../../../config.js'
@@ -18,11 +18,8 @@ function Search(){
   
   const inputValue = useRef('')
   const {data,isLoading,error} = useQuery('searchMovie', () => {
-      console.log(movieName)
       return axios.get(`https://api.themoviedb.org/3/search/movie?query=${movieName}&language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
   })
-  
-  console.log(data,movieName)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   
@@ -38,6 +35,9 @@ function Search(){
     navigate(0)
   }
   
+  const handleClickBackHome = () => {
+    navigate('/')
+  }
   
   if(isLoading){
     return <Loading></Loading>
@@ -49,7 +49,10 @@ function Search(){
   return(
     <>
       <Styles.Main>
-      
+        <Styles.ButtonBackHome onClick={handleClickBackHome}>
+           <FontAwesomeIcon icon={faAngleLeft} size="xl" style={{padding:"20px 10px"}}/>
+        </Styles.ButtonBackHome>
+
         
         <StylesNavbar.SearchBar ref={inputValue} type="search"/>
               

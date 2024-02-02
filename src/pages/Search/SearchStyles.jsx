@@ -10,6 +10,11 @@ export const Main = styled.main`
   color: #f2f2f2;
   `
   
+ export const ButtonBackHome = styled.div`
+  width: 20px;
+  height: 20px;
+ `
+  
 export const boxMovies = styled.div`
   width: 90%;
   height: 120px;
