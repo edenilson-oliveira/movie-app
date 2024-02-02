@@ -49,17 +49,19 @@ function Search(){
   return(
     <>
       <Styles.Main>
+       <Styles.BoxSearch>
         <Styles.ButtonBackHome onClick={handleClickBackHome}>
-           <FontAwesomeIcon icon={faAngleLeft} size="xl" style={{padding:"20px 10px"}}/>
+           <FontAwesomeIcon icon={faAngleLeft} size="xl"/>
         </Styles.ButtonBackHome>
 
         
         <StylesNavbar.SearchBar ref={inputValue} type="search"/>
               
         <StylesNavbar.Search>
+       
           <FontAwesomeIcon icon={faMagnifyingGlass} onClick={handleClickSearch}/>
         </StylesNavbar.Search>
-        
+      </Styles.BoxSearch>
       {
       data.results.map((value) => {
       return (

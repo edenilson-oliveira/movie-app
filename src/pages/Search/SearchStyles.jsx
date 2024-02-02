@@ -13,7 +13,15 @@ export const Main = styled.main`
  export const ButtonBackHome = styled.div`
   width: 20px;
   height: 20px;
+  margin: 0px 0px 0px 0px;
  `
+  
+export const BoxSearch = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 50px;`
   
 export const boxMovies = styled.div`
   width: 90%;
@@ -39,7 +47,27 @@ export const boxMovies = styled.div`
     font-weight: bold;
     align-self: start;
     padding: 10px 5px;
-  }`
+  }
+  
+  @media (orientation: landscape){
+    width: 40%;
+  }
+  
+  @media (min-width: 768px){
+      width: 45%;
+      height: 150px;
+      align-items: start;
+      
+      
+      & p{
+        font-size: 1em;
+      }
+      
+      h2{
+        font-size: 1.2em;
+        margin: 15px;
+      }
+    }`
   
 export const TitleMovie = styled.h2`
     width: 55%;
