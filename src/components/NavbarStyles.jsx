@@ -33,7 +33,7 @@ export const Search = styled.button`
   width: 40px;
   height: 40px;
   border: none;
-  margin: 10px 0px;
+  margin: 10px 10px;
   color: #f2f2f2;
   background-color: transparent;
  `

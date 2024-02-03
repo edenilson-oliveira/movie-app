@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
+export const PositionFooter = styled.div`
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+`
+
 export const Main = styled.main`
   width: 100%;
   height: 100%;

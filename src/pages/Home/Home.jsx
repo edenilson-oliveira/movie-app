@@ -6,6 +6,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 import config from '../../../config.js'
 import Navbar from '../../components/Navbar.jsx'
+import Footer from '../../components/Footer.jsx'
 import * as Styles from './HomeStyles.jsx'
 import { Loading } from '../../GlobalStyles.jsx'
 
@@ -30,7 +31,10 @@ function Home(){
   
   return(
     <>
-      <Navbar />
+      <Navbar/>
+      <Styles.PositionFooter>
+        <Footer />
+      </Styles.PositionFooter>
       <Styles.Main>
       
         {

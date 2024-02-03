@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass,faStar } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal"
 import { useState,useRef } from 'react'
 import { ModalProvider } from 'styled-react-modal'
@@ -15,7 +15,9 @@ function Navbar() {
   const navigate = useNavigate()
   
   const handleClickSearch = () => {
-    navigate(`/search/${inputValue.current.value}`)
+    if(inputValue.current.value){
+      navigate(`/search/${inputValue.current.value}`)
+    }
   }
   
   return (
@@ -24,10 +26,10 @@ function Navbar() {
       <Styles.Header>
         <Styles.Title> MOVIES IMDBD </Styles.Title>
         
+          <FontAwesomeIcon icon={faStar}  style={{color: 'yellow'  ,paddingRight: '10px'}}/>
           <Styles.Search onClick={() => setModal(true)}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </Styles.Search>
-          
           <Styles.StyledModal 
             isOpen={modalOpen}
             onClick={(e) => e.target.className === 'Modal__wrap-jmcGzM dwgIQz'? setModal(false) : false}>
