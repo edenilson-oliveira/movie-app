@@ -25,10 +25,20 @@ export const Img = styled.img`
   height: 460px;
 `
 
+export const Filter = styled.div`
+  width: 101%;
+  height: 30px;
+  margin-left: -3px;
+  filter: blur(5px);
+  background-color: #100E2A;
+  position: relative;
+  top: -15px;
+  `
+
 export const TitleMovie = styled.h1`
   color: white;
   font-size: 1.5em;
-  padding: 5px 20px;
+  padding: 0px 20px;
   `
  
 export const Subtitle = styled.h2`

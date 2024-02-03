@@ -55,6 +55,7 @@ function Movie() {
         </Styles.Buttons>
        
         <Styles.Img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} />
+        <Styles.Filter></Styles.Filter>
         <Styles.TitleMovie>{data.title}</Styles.TitleMovie>
         <Styles.Subtitle>Sinopse</Styles.Subtitle>
         <Styles.Text>
@@ -71,7 +72,7 @@ function Movie() {
             {data.release_date}
           </Styles.Data>
         </Styles.MoreInfo>
-      </Styles.Main>)
+      </Styles.Main>
     </>
   );
 }
