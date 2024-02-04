@@ -9,6 +9,7 @@ import GlobalStyle from "./GlobalStyles.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Movie from "./pages/Movie/Movie.jsx";
 import Search from "./pages/Search/Search.jsx"
+import Favorites from "./pages/Favorites/Favorites.jsx"
 import ErrorPage from "./pages/ErrorPage.jsx"
 import store from "./redux/store.js";
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: "/movie/:id",
                 element: <Movie />
+            },
+            {
+              path: "/favorites",
+              element: <Favorites />
             }
         ]
     }

@@ -15,10 +15,9 @@ import { Loading } from '../../GlobalStyles.jsx'
 function Search(){
   const queryClient = useQueryClient()
   const { movieName } = useParams()
-  
   const inputValue = useRef('')
   const {data,isLoading,error} = useQuery('searchMovie', () => {
-      return axios.get(`https://api.themoviedb.org/3/search/movie?query=${movieName}&language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
+      return axios.get(`https://api.themoviedb.org/3/search/movie?query=${movieName ? movieName: ''}&language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
   })
   const dispatch = useDispatch()
   const navigate = useNavigate()
