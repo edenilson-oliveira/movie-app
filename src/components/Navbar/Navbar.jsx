@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass,faStar } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal"
 import { useState,useRef } from 'react'
 import { ModalProvider } from 'styled-react-modal'
@@ -26,7 +26,6 @@ function Navbar() {
       <Styles.Header>
         <Styles.Title> MOVIES IMDBD </Styles.Title>
         
-          <FontAwesomeIcon icon={faStar}  style={{color: 'yellow'  ,paddingRight: '10px'}}/>
           <Styles.Search onClick={() => setModal(true)}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </Styles.Search>

@@ -8,7 +8,7 @@ import { useState,useRef } from 'react'
 
 import config from '../../../config.js'
 
-import * as StylesNavbar from '../../components/NavbarStyles.jsx'
+import * as StylesNavbar from '../../components/Navbar/NavbarStyles.jsx'
 import * as Styles from './SearchStyles.jsx'
 import { Loading } from '../../GlobalStyles.jsx'
 
