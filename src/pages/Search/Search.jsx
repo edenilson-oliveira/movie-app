@@ -39,7 +39,7 @@ function Search(){
   }
   
   if(isLoading){
-    return <Loading></Loading>
+    return <Loading><div></div></Loading>
   }
   if(error){
     return <div>Algo deu Errado</div>

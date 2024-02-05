@@ -7,23 +7,31 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
   }
   body{
+    width: 100vw;
+    height: 100px;
     background-color: #100E2A;
     color: #f2f2f2;
-    }
+  }
     `
  
  export const Loading = styled.div`
-  width: 50px;
-  height: 50px;
-  border: 15px solid #172538;
-  border-radius: 50%;
-  position: absolute;
-  top: 45%;
-  left: 40%;
-  border-color: transparent;
-  animation-name: loop;
-  animation-duration: 1.5s;
-  animation-iteration-count: infinite;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  & div{
+    width: 50px;
+    height: 50px;
+    border: 15px solid #172538;
+    border-radius: 50%;
+    border-color: transparent;
+    animation-name: loop;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+  }
+  
   
   @keyframes loop{
     25%{

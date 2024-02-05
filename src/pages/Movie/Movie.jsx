@@ -33,7 +33,7 @@ function Movie() {
     console.log(favoritesMovies)
   }
   if(isLoading){
-    return <Loading></Loading>
+    return <Loading><div></div></Loading>
   }
   
   if(error){

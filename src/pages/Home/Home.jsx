@@ -22,7 +22,7 @@ function Home(){
   }
     
   if(isLoading){
-    return <Loading></Loading>
+    return <Loading><div></div></Loading>
   }
   
   if(error){
