@@ -8,9 +8,12 @@ const GlobalStyle = createGlobalStyle`
   }
   body{
     width: 100vw;
-    height: 100px;
+    height: 100vh;
     background-color: #100E2A;
     color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
     `
  

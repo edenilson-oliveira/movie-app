@@ -2,7 +2,7 @@ import { styled } from 'styled-components'
 
 export const FooterMenu = styled.footer`
   width: 100%;
-  height: 7vh;
+  height: 10%;
   background-color: #171538;
 `
 

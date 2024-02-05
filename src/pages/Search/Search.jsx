@@ -7,6 +7,8 @@ import { faStar,faMagnifyingGlass,faAngleLeft } from '@fortawesome/free-solid-sv
 import { useState,useRef } from 'react'
 
 import config from '../../../config.js'
+import Footer from '../../components/Footer/Footer.jsx'
+
 
 import * as StylesNavbar from '../../components/Navbar/NavbarStyles.jsx'
 import * as Styles from './SearchStyles.jsx'
@@ -78,6 +80,7 @@ function Search(){
       })
       }
       </Styles.Main>
+      <Footer />
     </>
     )
 }

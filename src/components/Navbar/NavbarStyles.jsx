@@ -17,7 +17,7 @@ export const boxSearch = styled.div`
 
 export const Header = styled.header`
   width: 100%;
-  height: 60px;
+  height: 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
