@@ -65,19 +65,19 @@ function Search(){
       </Styles.BoxSearch>
       
       <Styles.SectionResults justifyContent={data.results.length > 4 ? 'space-evenly':'start'} flexDirection={data.results.length > 4 ? 'row':'column'}>
-      {
-      data.results.map((value) => {
-      return (
-      <Styles.boxMovies onClick={() => handleClickNavigateMovie(value.id)} >
-          <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
-          <Styles.TitleMovie>
-              {value.title}
-          </Styles.TitleMovie>
-          <p>
-            {value.vote_average.toFixed(1)}
-            <FontAwesomeIcon icon={faStar} size="xs" style={{paddingLeft:"2px"}}/>
-          </p>
-        </Styles.boxMovies>
+        {
+        data.results.map((value) => {
+        return (
+        <Styles.boxMovies onClick={() => handleClickNavigateMovie(value.id)} >
+            <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
+            <Styles.TitleMovie>
+                {value.title}
+            </Styles.TitleMovie>
+            <p>
+              {value.vote_average.toFixed(1)}
+              <FontAwesomeIcon icon={faStar} size="xs" style={{paddingLeft:"2px", color: "yellow"}}/>
+            </p>
+          </Styles.boxMovies>
         )
       })
       

@@ -5,6 +5,7 @@ export const Main = styled.main`
   height: 90vh;
   overflow: auto;
   color: #f2f2f2;
+  padding-bottom: 25px;
   `
 
 export const SectionResults = styled.section`
