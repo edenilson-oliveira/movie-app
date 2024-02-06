@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
   }
     `
  

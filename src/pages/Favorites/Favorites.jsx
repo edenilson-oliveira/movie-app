@@ -8,7 +8,7 @@ function Favorites(){
       <Styles.Main>
         <h1>Favorites</h1>
       </Styles.Main>
-      <Footer/>
+      
     </>
     )
 }

@@ -63,12 +63,14 @@ function Search(){
           <FontAwesomeIcon icon={faMagnifyingGlass} onClick={handleClickSearch}/>
         </StylesNavbar.Search>
       </Styles.BoxSearch>
+      
+      <Styles.SectionResults justifyContent={data.results.length > 4 ? 'space-evenly':'start'} flexDirection={data.results.length > 4 ? 'row':'column'}>
       {
       data.results.map((value) => {
       return (
       <Styles.boxMovies onClick={() => handleClickNavigateMovie(value.id)} >
           <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
-          <Styles.TitleMovie fontSize={value.title.length > 16 ? '1em': '.7em'}>
+          <Styles.TitleMovie>
               {value.title}
           </Styles.TitleMovie>
           <p>
@@ -78,9 +80,11 @@ function Search(){
         </Styles.boxMovies>
         )
       })
+      
       }
+      </Styles.SectionResults>
       </Styles.Main>
-      <Footer />
+      
     </>
     )
 }
