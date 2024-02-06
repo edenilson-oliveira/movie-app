@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Main = styled.main`
   width: 100%;
-  height: 83.6vh;
+  height: 90vh;
   overflow: auto;
   color: #f2f2f2;
   `

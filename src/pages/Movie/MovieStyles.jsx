@@ -3,6 +3,10 @@ import styled from 'styled-components'
 export const Main = styled.main`
   width: 100%;
   height: 100vh;
+  
+  @media(max-width: 768px){
+    padding-bottom: 60%;
+  }
   `
 
 export const Buttons = styled.div`
@@ -24,6 +28,8 @@ export const Button = styled.button`
   @media(min-width: 768px){
     width: 70px;
     height: 70px;
+  }
+  
   }
   `
 
@@ -47,15 +53,31 @@ export const TitleMovie = styled.h1`
   color: white;
   font-size: 1.5em;
   padding: 0px 20px;
+  
+  @media(min-width: 768px){
+    font-size: 2em;
+  }
+  
   `
  
 export const Subtitle = styled.h2`
   font-size: 1.3em;
-  padding: 15px;`
+  padding: 15px;
+  
+  @media(min-width: 768px){
+    font-size: 2em;
+    padding: 20px;
+  }`
   
 export const Text = styled.p`
   color: gray;
-  padding: 5px 15px;`
+  padding: 5px 15px;
+  
+  @media(min-width: 768px){
+    font-size: 2em;
+    
+    padding: 5px 25px;
+  }`
 
 export const MoreInfo = styled.div`
   display: flex;
@@ -64,7 +86,15 @@ export const MoreInfo = styled.div`
 export const Note = styled.p`
   color: #FFD432;
   margin: 15px;
+  
+  @media(min-width: 768px){
+    font-size: 1.5em;
+  }
 `
 
 export const Data = styled.p`
-  margin: 15px;`
+  margin: 15px;
+ 
+  @media(min-width: 768px){
+    font-size: 1.5em;
+  }`

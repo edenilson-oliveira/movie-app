@@ -6,18 +6,6 @@ export const FooterMenu = styled.footer`
   background-color: #171538;
   position: fixed;
   top: 90%;
-  animation-name: anim-exit;
-  animation-duration: .1s;
-  animation-timeline: view();
-  animation-range: cover 30% cover 100%;
-  
-  @keyframes anim-exit{
-    from{
-      opacity: 1;
-    }
-    to{
-      opacity: 0;
-    }
 
 `
 
