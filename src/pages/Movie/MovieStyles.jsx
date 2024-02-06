@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 export const Main = styled.main`
   width: 100%;
-  height: 83.6vh;
-  overflow-x: scroll;
+  height: 100vh;
   `
 
 export const Buttons = styled.div`
@@ -30,7 +29,7 @@ export const Button = styled.button`
 
 export const Img = styled.img`
   width: 100%;
-  height: 75%;
+  height: 60%;
   
 `
 

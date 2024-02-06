@@ -2,24 +2,17 @@ import styled from 'styled-components'
 
 export const Main = styled.main`
   width: 100%;
-  height: 75vh;
+  height: 100vh;
   overflow: auto;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   overflow: auto;
   color: #f2f2f2;
-  animation-name: anim-exit;
-  animation-duration: .5s;
-  animation-play-state: paused;
   
-  @keyframes anim-exit{
-    from{
-      transform: translateX(0px);
-    }
-    to{
-      transform: translateX(-50px);
-    }
+  @media(max-width: 768px){
+    padding-bottom: 20%;
+  }
   }
   `
 
