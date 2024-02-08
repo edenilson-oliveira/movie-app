@@ -54,14 +54,27 @@ export const boxMovies = styled.div`
     height: 100%;
     border-radius: 10px;
   }
+  
+  & div{
+    padding: 5px;
+  }
+  
   & p{
     width: 15%;
     font-size: .8em;
-    margin: 2px 5px;
     color: #FFD432;
     font-weight: bold;
     align-self: start;
     padding: 10px 5px;
+  }
+  
+  & button{
+    width: 15%;
+    align-self: end;
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin-bottom: 30px;
   }
   
   @media (orientation: landscape){

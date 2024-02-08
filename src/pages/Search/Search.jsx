@@ -75,7 +75,7 @@ function Search(){
             </Styles.TitleMovie>
             <p>
               {value.vote_average.toFixed(1)}
-              <FontAwesomeIcon icon={faStar} size="xs" style={{paddingLeft:"2px", color: "yellow"}}/>
+              <FontAwesomeIcon icon={faStar} size="xs" style={{paddingLeft:"2px"}}/>
             </p>
           </Styles.boxMovies>
         )
