@@ -33,7 +33,7 @@ function Search(){
   
   const handleClickSearch = () => {
     navigate(`/search/${inputValue.current.value}`)
-    navigate(0)
+   navigate(0)
   }
   
   const handleClickBackHome = () => {
@@ -61,6 +61,7 @@ function Search(){
         <StylesNavbar.Search>
        
           <FontAwesomeIcon icon={faMagnifyingGlass} onClick={handleClickSearch}/>
+          
         </StylesNavbar.Search>
       </Styles.BoxSearch>
       
@@ -82,7 +83,7 @@ function Search(){
       })
       
       }
-      </Styles.SectionResults>
+        </Styles.SectionResults>
       </Styles.Main>
       
     </>

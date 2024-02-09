@@ -23,7 +23,7 @@ export const boxScroll = styled.div`
   overflow-x: hidden;
   `
 
-export const boxMovies = styled.div`
+export const BoxMovies = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   margin: 5px;

@@ -1,5 +1,6 @@
 import Footer from '../../components/Footer/Footer.jsx'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar,faXmark,faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
@@ -10,7 +11,7 @@ function Favorites(){
   
   const { favoritesMovies } = useSelector(state => state.movieReducer)
   console.log(favoritesMovies)
-  
+  const navigate = useNavigate()
   const handleClickNavigateMovie = (movieId) => {
     navigate(`/movie/${movieId}`)
   }

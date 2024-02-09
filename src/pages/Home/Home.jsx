@@ -1,12 +1,16 @@
 import axios from 'axios'
+import { useEffect } from 'react'
 import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch } from "react-redux";
 
 import config from '../../../config.js'
 import Navbar from '../../components/Navbar/Navbar.jsx'
 import Footer from '../../components/Footer/Footer.jsx'
+import { getDataOnLocalStorage } from './../../redux/movie/slice.js'
+
 import * as Styles from './HomeStyles.jsx'
 import { Loading } from '../../GlobalStyles.jsx'
 
@@ -14,6 +18,13 @@ function Home(){
   const {data,isLoading,error,refetch} = useQuery('movies', () => {
     return axios.get(`https://api.themoviedb.org/3/discover/movie/?language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
   })
+  
+ 
+  
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('favoritesMovies'))
+    console.log(data)
+  },[])
   
   const navigate = useNavigate()
   
@@ -39,7 +50,7 @@ function Home(){
         {
         data.results.map((value) => {
         return (
-          <Styles.boxMovies width="145px" height="260px" onClick={() => handleClickNavigateMovie(value.id)}>
+          <Styles.BoxMovies width="145px" height="260px" onClick={() => handleClickNavigateMovie(value.id)}>
 
             <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
             <Styles.TitleMovie fontSize={value.title.length > 16 ? '.52em': '.7em'}>
@@ -50,7 +61,7 @@ function Home(){
               <FontAwesomeIcon icon={faStar} size="xs" style={{paddingLeft:"2px"}}/>
              </p>
                        
-          </Styles.boxMovies>
+          </Styles.BoxMovies>
           )
         })
         }
