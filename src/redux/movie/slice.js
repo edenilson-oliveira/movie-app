@@ -13,10 +13,6 @@ const movieSlice = createSlice({
   name: 'movie',
   initialState,
   reducers: {
-    getDataOnLocalStorage: (state,action) => {
-      state.favoritesMovies = action.payload
-    },
-    
     addFavorites: (state,action) => {
       const isExistsMovie = state.favoritesMovies.some((value) => value.id === action.payload.id)
      
@@ -29,6 +25,6 @@ const movieSlice = createSlice({
   }
 })
 
-export const { getDataOnLocalStorage,addFavorites } = movieSlice.actions
+export const { addFavorites } = movieSlice.actions
 
 export default movieSlice.reducer
