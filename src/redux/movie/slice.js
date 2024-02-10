@@ -21,10 +21,18 @@ const movieSlice = createSlice({
         
         updateLocalStorage(state.favoritesMovies)
       }
-    }
+    },
+    removeFavorites: (state,action) => {
+      state.favoritesMovies.filter((value,index) => {
+        if(value.id === action.payload){
+          state.favoritesMovies.splice(index,1)
+          updateLocalStorage(state.favoritesMovies)
+        }
+      })
+    },
   }
 })
 
-export const { addFavorites } = movieSlice.actions
+export const { addFavorites,removeFavorites } = movieSlice.actions
 
 export default movieSlice.reducer

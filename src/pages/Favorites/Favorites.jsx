@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar,faXmark,faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
 import { addFavorites } from './../../redux/movie/slice.js'
-
+import { removeFavorites } from './../../redux/movie/slice.js'
 
 import * as Styles from './FavoritesStyles.jsx'
 import * as StylesSearch from '../Search/SearchStyles.jsx'
@@ -24,7 +24,10 @@ function Favorites(){
     }
   },[])
   
-  
+  const handleClickRemoveMovie = (movieId) => {
+    dispatch(removeFavorites(movieId))
+    console.log('clicou')
+  }
   
   const { favoritesMovies } = useSelector(state => state.movieReducer)
   console.log(favoritesMovies)
@@ -44,13 +47,13 @@ function Favorites(){
            {
             favoritesMovies.map((value) => {
           return (
-          <StylesSearch.boxMovies onClick={() => handleClickNavigateMovie(value.id)} >
+          <StylesSearch.boxMovies onClick={(e) => e.target.className === 'SVGAnimatedString'? handleClickNavigateMovie(value.id) : false  }>
               <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
               <StylesSearch.TitleMovie>
                   {value.title}
               </StylesSearch.TitleMovie>
               <div>
-                <button arialLabel="remove movie of favorites">
+                <button arialLabel="remove movie of favorites" onClick={ () => handleClickRemoveMovie(value.id)}>
                   <FontAwesomeIcon icon={faXmark} size="2xl" />
                 </button>
                 <p>

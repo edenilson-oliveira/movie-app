@@ -45,11 +45,11 @@ function Movie() {
     
       <Styles.Main>
         <Styles.Buttons>
-          <Styles.Button onClick={handleClickReturnHome}>
+          <Styles.Button ariaLabel="back to home" onClick={handleClickReturnHome}>
             <FontAwesomeIcon icon={faArrowLeft} style={{ color: "#f2f2f2" }}
                     />
           </Styles.Button>
-          <Styles.Button onClick={handleClickAddFavorites}>
+          <Styles.Button ariaLabel="add favorites" onClick={handleClickAddFavorites}>
             <FontAwesomeIcon icon={faPlus} style={{ color: "#f2f2f2" }} />
           </Styles.Button>
         </Styles.Buttons>
