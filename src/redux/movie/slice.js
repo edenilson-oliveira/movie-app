@@ -1,12 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = ({
-  search: '',
+  lastSearch: '',
   favoritesMovies: []
 })
 
 const updateLocalStorage = (data) => {
   localStorage.setItem('favoritesMovies',JSON.stringify(data))
+}
+
+const updateLocalStorageSearch = (search) => {
+  localStorage.setItem('lastSearch',search)
 }
 
 const movieSlice = createSlice({
@@ -30,9 +34,13 @@ const movieSlice = createSlice({
         }
       })
     },
+    addLastSearch: (state,action) => {
+      state.lastSearch = action.payload
+      updateLocalStorageSearch(state.lastSearch)
+    }
   }
 })
 
-export const { addFavorites,removeFavorites } = movieSlice.actions
+export const { addFavorites,removeFavorites,addLastSearch } = movieSlice.actions
 
 export default movieSlice.reducer

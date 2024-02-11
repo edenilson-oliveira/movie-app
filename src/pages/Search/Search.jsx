@@ -1,4 +1,5 @@
 import { useQuery,useQueryClient } from 'react-query'
+import { useEffect } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import axios from 'axios'
 import { useNavigate,useParams } from 'react-router-dom'
@@ -8,6 +9,7 @@ import { useState,useRef } from 'react'
 
 import config from '../../../config.js'
 import Footer from '../../components/Footer/Footer.jsx'
+import { addLastSearch } from './../../redux/movie/slice.js'
 
 
 import * as StylesNavbar from '../../components/Navbar/NavbarStyles.jsx'
@@ -24,6 +26,14 @@ function Search(){
   const dispatch = useDispatch()
   const navigate = useNavigate()
   
+  useEffect(() => {
+    const lastSearch = localStorage.getItem('lastSearch')
+    if(lastSearch && !movieName){
+      dispatch(addLastSearch(lastSearch))
+      navigate(`/search/${lastSearch}`)
+     navigate(0)
+  }
+  })
   
   const handleClickNavigateMovie = (movieId) => {
     navigate(`/movie/${movieId}`)
@@ -32,6 +42,7 @@ function Search(){
   
   
   const handleClickSearch = () => {
+    dispatch(addLastSearch(inputValue.current.value))
     navigate(`/search/${inputValue.current.value}`)
    navigate(0)
   }
