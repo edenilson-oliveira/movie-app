@@ -1,6 +1,6 @@
 import { useQuery,useQueryClient } from 'react-query'
 import { useEffect } from 'react'
-import { useSelector,useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { useNavigate,useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -26,14 +26,19 @@ function Search(){
   const dispatch = useDispatch()
   const navigate = useNavigate()
   
+  
+  
   useEffect(() => {
     const lastSearch = localStorage.getItem('lastSearch')
     if(lastSearch && !movieName){
-      dispatch(addLastSearch(lastSearch))
       navigate(`/search/${lastSearch}`)
-     navigate(0)
-  }
-  })
+      dispatch(addLastSearch(lastSearch))
+      navigate(0)
+    }
+    else if(movieName){
+      dispatch(addLastSearch(movieName))
+    }
+  },[movieName])
   
   const handleClickNavigateMovie = (movieId) => {
     navigate(`/movie/${movieId}`)
@@ -42,7 +47,7 @@ function Search(){
   
   
   const handleClickSearch = () => {
-    dispatch(addLastSearch(inputValue.current.value))
+    //dispatch(addLastSearch(inputValue.current.value))
     navigate(`/search/${inputValue.current.value}`)
    navigate(0)
   }
