@@ -92,9 +92,23 @@ export const Note = styled.p`
   }
 `
 
-export const Data = styled.p`
+export const Date = styled.p`
   margin: 15px;
  
   @media(min-width: 768px){
     font-size: 1.5em;
   }`
+
+export const Genres = styled.div`
+  width: 95%;
+  display: flex;
+  margin: 0 10px;
+  
+  & div{
+    border: 1px solid white;
+    margin: 2px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: .8em;
+    }`

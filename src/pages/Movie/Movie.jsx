@@ -68,10 +68,24 @@ function Movie() {
             <FontAwesomeIcon icon={faStar}/>
           </Styles.Note>
                 
-          <Styles.Data>
+          <Styles.Date>
             {data.release_date}
-          </Styles.Data>
+          </Styles.Date>
         </Styles.MoreInfo>
+        
+        <Styles.Genres>
+          
+          {
+            data.genres.map(value => {
+              return(
+               <div>
+                  {value.name}
+               </div>
+               )
+            })
+          }
+          
+        </Styles.Genres>
       </Styles.Main>
     </>
   );
