@@ -70,8 +70,10 @@ export const Subtitle = styled.h2`
   }`
   
 export const Text = styled.p`
+  height: ${(props) => props.height};
   color: gray;
   padding: 5px 15px;
+  overflow: auto;
   
   @media(min-width: 768px){
     font-size: 2em;

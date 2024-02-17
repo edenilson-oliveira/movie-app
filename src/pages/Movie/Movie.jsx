@@ -58,7 +58,7 @@ function Movie() {
         <Styles.Filter></Styles.Filter>
         <Styles.TitleMovie>{data.title}</Styles.TitleMovie>
         <Styles.Subtitle>Sinopse</Styles.Subtitle>
-        <Styles.Text>
+        <Styles.Text height={data.overview.length >= 320?'20%':'auto'}>
            {data.overview ? data.overview : "Não informada"}
         </Styles.Text>
         
