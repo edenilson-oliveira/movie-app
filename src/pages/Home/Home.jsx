@@ -37,7 +37,18 @@ function Home(){
       <Navbar/>
         
       <Styles.Main>
-      
+        <Styles.BoxScroll>
+          {
+          data.results.map((value) => {
+            return (
+            <div onClick={() => handleClickNavigateMovie(value.id)} >
+              <img src={`https://image.tmdb.org/t/p/w500/${value.backdrop_path}`} />
+            </div>
+            )
+            })
+          }
+        </Styles.BoxScroll>
+        
         {
         data.results.map((value) => {
         return (

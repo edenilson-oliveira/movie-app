@@ -16,11 +16,29 @@ export const Main = styled.main`
   }
   `
 
-export const boxScroll = styled.div`
+export const BoxScroll = styled.div`
   width: 100vw;
-  height: 150px;
-  display: inline-block;
-  overflow-x: hidden;
+  height: 170px;
+  display: flex;
+  overflow-x: auto;
+  margin: 2px;
+  
+  & div{
+    min-width: 100%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    margin: 2px;
+    
+    & img{
+      width: 90%;
+      height: 100%;
+      border: 3px solid #172538;
+      border-radius: 10px;
+    }
+  }
+  
+
   `
 
 export const BoxMovies = styled.div`
