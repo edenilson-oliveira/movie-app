@@ -39,11 +39,11 @@ function Home(){
       <Styles.Main>
         <Styles.BoxScroll>
           {
-          data.results.map((value) => {
+          data.results.map((value,index) => {
             return (
-            <div onClick={() => handleClickNavigateMovie(value.id)} >
-              <img src={`https://image.tmdb.org/t/p/w500/${value.backdrop_path}`} />
-            </div>
+            <Styles.divMovie onClick={() => handleClickNavigateMovie(value.id)}>
+              <img src={`https://image.tmdb.org/t/p/w500/${value.backdrop_path}`} alt={`Image film ${value.title}`} />
+            </Styles.divMovie>
             )
             })
           }
@@ -52,9 +52,9 @@ function Home(){
         {
         data.results.map((value) => {
         return (
-          <Styles.BoxMovies width="145px" height="260px" onClick={() => handleClickNavigateMovie(value.id)}>
+          <Styles.BoxMovies width="145px" height="260px" onClick={() => handleClickNavigateMovie(value.id)} aria-label={`Go to movie ${value.title}`}>
 
-            <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
+            <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} alt={`Image film ${value.title}`} />
             <Styles.TitleMovie fontSize={value.title.length > 16 ? '.52em': '.7em'}>
             {value.title}
             </Styles.TitleMovie>

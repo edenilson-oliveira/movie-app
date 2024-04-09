@@ -48,12 +48,12 @@ function Favorites(){
             favoritesMovies.map((value) => {
           return (
           <StylesSearch.boxMovies onClick={(e) => e.target.className === 'SVGAnimatedString'? handleClickNavigateMovie(value.id) : false  }>
-              <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
+              <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} alt={`Image film ${value.title}`}/>
               <StylesSearch.TitleMovie>
                   {value.title}
               </StylesSearch.TitleMovie>
               <div>
-                <button arialLabel="remove movie of favorites" onClick={ () => handleClickRemoveMovie(value.id)}>
+                <button aria-label="remove movie of favorites" onClick={ () => handleClickRemoveMovie(value.id)}>
                   <FontAwesomeIcon icon={faXmark} size="2xl" />
                 </button>
                 <p>

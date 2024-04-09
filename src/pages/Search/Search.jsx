@@ -47,9 +47,9 @@ function Search(){
   
   
   const handleClickSearch = () => {
-    //dispatch(addLastSearch(inputValue.current.value))
+    dispatch(addLastSearch(inputValue.current.value))
     navigate(`/search/${inputValue.current.value}`)
-   navigate(0)
+    navigate(0)
   }
   
   const handleClickBackHome = () => {
@@ -67,7 +67,7 @@ function Search(){
     <>
       <Styles.Main>
        <Styles.BoxSearch>
-        <Styles.ButtonBackHome onClick={handleClickBackHome}>
+        <Styles.ButtonBackHome onClick={handleClickBackHome} aria-label="Back to home">
            <FontAwesomeIcon icon={faAngleLeft} size="xl"/>
         </Styles.ButtonBackHome>
 
@@ -76,7 +76,7 @@ function Search(){
               
         <StylesNavbar.Search>
        
-          <FontAwesomeIcon icon={faMagnifyingGlass} onClick={handleClickSearch}/>
+          <FontAwesomeIcon icon={faMagnifyingGlass} onClick={handleClickSearch} aria-label="search"/>
           
         </StylesNavbar.Search>
       </Styles.BoxSearch>
@@ -86,7 +86,7 @@ function Search(){
         data.results.map((value) => {
         return (
         <Styles.boxMovies onClick={() => handleClickNavigateMovie(value.id)} >
-            <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} />
+            <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} alt={`Image film ${value.title}`} />
             <Styles.TitleMovie>
                 {value.title}
             </Styles.TitleMovie>

@@ -26,12 +26,12 @@ function Navbar() {
       <Styles.Header>
         <Styles.Title> MOVIES IMDBD </Styles.Title>
         
-          <Styles.Search onClick={() => setModal(true)}>
+          <Styles.Search onClick={() => setModal(true)} ariaLabel="Search">
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </Styles.Search>
           <Styles.StyledModal 
             isOpen={modalOpen}
-            onClick={(e) => e.target.className === 'Modal__wrap-jmcGzM dwgIQz'? setModal(false) : false}>
+            onClick={(e) => e.target.className === 'Modal__wrap-jmcGzM dwgIQz'? setModal(false) : false} ariaLabel="Open search modal">
             
             <Styles.boxSearch>
               <Styles.SearchBar ref={inputValue} type="search"/>

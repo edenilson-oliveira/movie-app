@@ -29,8 +29,6 @@ function Movie() {
   
   const handleClickAddFavorites = () => {
     dispatch(addFavorites(data))
-    
-    console.log(favoritesMovies)
   }
   if(isLoading){
     return <Loading><div></div></Loading>
@@ -45,16 +43,16 @@ function Movie() {
     
       <Styles.Main>
         <Styles.Buttons>
-          <Styles.Button ariaLabel="back to home" onClick={handleClickReturnHome}>
+          <Styles.Button aria-label="back" onClick={handleClickReturnHome}>
             <FontAwesomeIcon icon={faArrowLeft} style={{ color: "#f2f2f2" }}
                     />
           </Styles.Button>
-          <Styles.Button ariaLabel="add favorites" onClick={handleClickAddFavorites}>
+          <Styles.Button aria-label="add favorites" onClick={handleClickAddFavorites}>
             <FontAwesomeIcon icon={faPlus} style={{ color: "#f2f2f2" }} />
           </Styles.Button>
         </Styles.Buttons>
        
-        <Styles.Img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} />
+        <Styles.Img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} alt={`Image film ${data.title}`} />
         <Styles.Filter></Styles.Filter>
         <Styles.TitleMovie>{data.title}</Styles.TitleMovie>
         <Styles.Subtitle>Sinopse</Styles.Subtitle>
