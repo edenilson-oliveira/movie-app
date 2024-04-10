@@ -33,7 +33,6 @@ function Favorites(){
   const navigate = useNavigate()
   
   const handleClickNavigateMovie = (movieId) => {
-    console.log(movieId)
     navigate(`/movie/${movieId}`)
   }
   
@@ -46,7 +45,7 @@ function Favorites(){
            {
             favoritesMovies.map((value) => {
           return (
-          <StylesSearch.boxMovies onClick={(e) => e.target.className !== 'SVGAnimatedString'? handleClickNavigateMovie(value.id) : console.log(e.target.className)  }>
+          <StylesSearch.boxMovies onClick={(e) => !e.target.className.baseVal? handleClickNavigateMovie(value.id) : false  }>
               <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} alt={`Image film ${value.title}`}/>
               <StylesSearch.TitleMovie>
                   {value.title}
