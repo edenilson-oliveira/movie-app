@@ -13,8 +13,8 @@ import * as Styles from './HomeStyles.jsx'
 import { Loading } from '../../GlobalStyles.jsx'
 
 function Home(){
-  const {data,isLoading,error,refetch} = useQuery('movies', () => {
-    return axios.get(`https://api.themoviedb.org/3/discover/movie/?language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
+  const {data,isLoading,error} = useQuery('movies', () => {
+    return axios.get(`https://api.themoviedb.org/3/discover/movie?language=pt-br&api_key=${config.apiKey}`).then(response => response.data)
   })
   
   const navigate = useNavigate()
@@ -28,6 +28,7 @@ function Home(){
   }
   
   if(error){
+    console.log(error)
     return <div>Algo deu errado!</div>
   }
   

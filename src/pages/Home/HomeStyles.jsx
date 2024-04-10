@@ -33,9 +33,6 @@ export const divMovie = styled.div`
     justify-content: center;
     margin: 2px;
     
-    animation-name: scroll-side;
-    animation-duration: 60s;
-    animation-iteration-count: infinite;
     
     & img{
       width: 90%;
@@ -44,13 +41,6 @@ export const divMovie = styled.div`
       border-radius: 10px;
     }
     
-    @keyframes scroll-side{
-      from{
-        transform: translateX(0px);
-      }
-      to{
-        transform: translateX(calc(-200%* 10));
-      }
     `
 
 export const BoxMovies = styled.div`

@@ -26,15 +26,14 @@ function Favorites(){
   
   const handleClickRemoveMovie = (movieId) => {
     dispatch(removeFavorites(movieId))
-    console.log('clicou')
   }
   
   const { favoritesMovies } = useSelector(state => state.movieReducer)
-  console.log(favoritesMovies)
   
   const navigate = useNavigate()
   
   const handleClickNavigateMovie = (movieId) => {
+    console.log(movieId)
     navigate(`/movie/${movieId}`)
   }
   
@@ -47,7 +46,7 @@ function Favorites(){
            {
             favoritesMovies.map((value) => {
           return (
-          <StylesSearch.boxMovies onClick={(e) => e.target.className === 'SVGAnimatedString'? handleClickNavigateMovie(value.id) : false  }>
+          <StylesSearch.boxMovies onClick={(e) => e.target.className !== 'SVGAnimatedString'? handleClickNavigateMovie(value.id) : console.log(e.target.className)  }>
               <img src={`https://image.tmdb.org/t/p/w500/${value.poster_path}`} alt={`Image film ${value.title}`}/>
               <StylesSearch.TitleMovie>
                   {value.title}
